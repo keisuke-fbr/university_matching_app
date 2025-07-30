@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>該当者一覧</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='list.css') }}">
+</head>
+<body>
+  <h1 id="category-title"></h1>
+  <ul id="user-list"></ul>
+  <script>
+    // URLからcategoryパラメータ取得
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+    document.getElementById('category-title').textContent = (category || "分野") + " を教えられる人";
+
+    // ユーザーリストを生成する関数
+    function displayUsers(data, category) {
+      const userList = document.getElementById('user-list');
+      userList.innerHTML = "";
+      // category（列名）が1の人を抽出
+      const matched = data.filter(row => row[category] == 1 || row[category] == "1");
+      if (matched.length === 0) {
+        userList.innerHTML = "<li>該当者がいません</li>";
+      } else {
+        matched.forEach(user => {
+          const li = document.createElement('li');
+          const majors = Object.keys(user)
+            .filter(k => (user[k] == 1 || user[k] == "1") && k != "名前" && k != "学年" && k != "id")
+            .join(", ");
+          li.innerHTML = `
+            <div class="user-card" tabindex="0" style="cursor:pointer;">
+              <div><strong>名前：</strong>${user["名前"]}</div>
+              <div><strong>学年：</strong>${user["学年"]}</div>
+              <div><strong>専門：</strong>${majors}</div>
+            </div>
+          `;
+          // user["名前"]で user_name をパラメータに渡す
+          li.querySelector('.user-card').onclick = () => {
+            location.href = `/chat?user_name=${encodeURIComponent(user["名前"])}`;
+          };
+          userList.appendChild(li);
+        });
+      }
+    }
+
+    // Flask APIからユーザーデータを取得して表示
+    fetch('{{ url_for("get_users") }}')
+      .then(res => res.json())
+      .then(data => {
+        displayUsers(data, category);
+      })
+      .catch(err => {
+        document.getElementById('user-list').innerHTML = "<li>ユーザーデータの取得に失敗しました</li>";
+      });
+  </script>
+</body>
+</html>

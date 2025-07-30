@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>詳細選択画面</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>サークル</h1>
+    <div class="button-list">
+      <button onclick="location.href='{{ url_for('list_page') }}?category=新歓情報'">新歓情報</button>
+      <button onclick="location.href='{{ url_for('list_page') }}?category=サークル情報'">サークル情報</button>
+    </div>
+  </div>
+</body>
+</html>

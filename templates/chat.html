@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>チャット</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="chat-container">
+      <!-- ヘッダー -->
+      <div class="chat-header">
+        <div class="name">
+          <span id="userName">demo</span>
+        </div>
+        <div class="finish">
+            <button id="finishButton">完了</button>
+        </div>
+      </div>
+
+      <!-- メッセージ表示エリア -->
+      <div class="chat-messages">
+        <div id="messageArea">
+          <!-- メッセージがここに表示 -->
+        </div>
+      </div>
+
+      <!-- 入力フォーム -->
+      <form class="chat-input" onsubmit="return false;">
+        <input id="messageInput" name="input" placeholder="メッセージを入力" autocomplete="off" autofocus>
+        <button id="sendButton" type="button">
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+
+    <!--完了ボタン押下後のポップアップ-->
+    <div id="mask" class="hidden"></div>
+    <section id="modal" class="hidden">
+        <p>質問を終了しました！</p>
+    </section>
+  </div>
+
+  <script>
+    // URLからチャット相手の user_name を取得
+    const params = new URLSearchParams(window.location.search);
+    const toUserName = params.get('user_name'); // ここで相手名を取得
+    // 相手名があれば表示。なければ「不明なユーザー」
+    document.getElementById('userName').textContent = toUserName || "不明なユーザー";
+  </script>
+
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

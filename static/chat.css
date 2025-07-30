@@ -1,0 +1,158 @@
+/* 全体の設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.chat-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ヘッダーの設定 */
+.chat-header {
+  background: #4a6fa5;
+  color: white;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.finish {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+#finishButton {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #4a6fa5;
+  transition: background-color 0.3s;
+}
+
+#finishButton:hover {
+  background-color: #e0e0e0;
+}
+
+/* メッセージのやりとりの設定 */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: #e3f2fd;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+  background-color: #f1f1f1;
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+}
+
+/* 入力部分の設定 */
+.chat-input {
+  display: flex;
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+#messageInput {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+  font-size: 16px;
+}
+
+#sendButton {
+  background: #4a6fa5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#sendButton:hover {
+  background: #3a5a80;
+}
+
+/* ポップアップの設定 */
+.hidden {
+  display: none;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  background: #fff;
+  width: 50%;
+  padding: 24px;
+  border-radius: 4px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0 auto;
+  z-index: 2;
+}

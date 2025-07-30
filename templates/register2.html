@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>新規ユーザー登録</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='register2.css') }}">
+</head>
+<body>
+  <div class="register-container">
+    <h1>新規ユーザー登録</h1>
+    <form method="POST" action="{{ url_for('register') }}">
+      <label>名前: <input type="text" name="名前" required></label><br>
+      <label>学年: <input type="number" name="学年" min="1" max="6" required></label><br>
+      <fieldset>
+        <legend>学問</legend>
+        <label><input type="checkbox" name="数学">数学</label>
+        <label><input type="checkbox" name="物理">物理</label>
+        <label><input type="checkbox" name="英語">英語</label>
+        <label><input type="checkbox" name="プログラミング">プログラミング</label>
+      </fieldset>
+      <fieldset>
+        <legend>レポート作成</legend>
+        <label><input type="checkbox" name="プレゼンレポート">プレゼンレポート</label>
+        <label><input type="checkbox" name="実験レポート">実験レポート</label>
+        <label><input type="checkbox" name="授業レポート">授業レポート</label>
+        <label><input type="checkbox" name="論文作成">論文作成</label>
+      </fieldset>
+      <fieldset>
+        <legend>就職活動</legend>
+        <label><input type="checkbox" name="ES添削">ES添削</label>
+        <label><input type="checkbox" name="面接練習">面接練習</label>
+        <label><input type="checkbox" name="業界研究">業界研究</label>
+        <label><input type="checkbox" name="インターンシップ情報">インターンシップ情報</label>
+      </fieldset>
+      <fieldset>
+        <legend>サークル</legend>
+        <label><input type="checkbox" name="新歓情報">新歓情報</label>
+        <label><input type="checkbox" name="サークル情報">サークル情報</label>
+      </fieldset>
+      <button type="submit" class="register-btn">登録する</button>
+    </form>
+    <!-- 追加：トップに戻るボタン -->
+    <div style="margin-top: 24px; text-align: center;">
+      <a href="{{ url_for('search') }}" class="home-btn">トップに戻る</a>
+    </div>
+    {% if success %}
+      <div class="success-message">登録が完了しました！</div>
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>詳細選択画面</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>就職活動</h1>
+    <div class="button-list">
+      <button onclick="location.href='{{ url_for('list_page') }}?category=ES添削'">ES添削</button>
+      <button onclick="location.href='{{ url_for('list_page') }}?category=面接練習'">面接練習</button>
+      <button onclick="location.href='{{ url_for('list_page') }}?category=業界研究'">業界研究</button>
+      <button onclick="location.href='{{ url_for('list_page') }}?category=インターンシップ情報'">インターンシップ情報</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>受信箱</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='inbox.css') }}">
+</head>
+<body>
+  <div class="inbox-container">
+    <h1>受信箱（{{ user_name }}さん宛）</h1>
+    <ul>
+      {% if senders %}
+        {% for sender in senders %}
+          <li>
+            <!-- ↓ user_id→user_nameで遷移する -->
+            <a href="{{ url_for('chat') }}?user_name={{ sender.name }}">{{ sender.name }}</a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li>メッセージはありません</li>
+      {% endif %}
+    </ul>
+    <a href="{{ url_for('search') }}">トップに戻る</a>
+  </div>
+</body>
+</html>

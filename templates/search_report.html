@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>詳細選択画面</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>レポート作成</h1>
+    <div class="button-list">
+      <button onclick="location.href='{{ url_for('list_page') }}?category=プレゼンレポート'">プレゼンレポート</button>
+      <button onclick="location.href='{{ url_for('list_page') }}?category=実験レポート'">実験レポート</button>
+      <button onclick="location.href='{{ url_for('list_page') }}?category=授業レポート'">授業レポート</button>
+      <button onclick="location.href='{{ url_for('list_page') }}?category=論文作成'">論文作成</button>
+    </div>
+  </div>
+</body>
+</html>
