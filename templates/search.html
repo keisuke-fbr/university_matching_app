@@ -5,8 +5,13 @@
   <title>項目選択画面</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
+  <div class="page-header">
+    <div class="header-logo">CanMatch</div>
+  </div>
   <div class="container">
+  
     <h1>項目選択</h1>
     <div class="button-list">
       <button onclick="location.href='{{ url_for('search_study') }}'">学問</button>

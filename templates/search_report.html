@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>詳細選択画面</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
 </head>
 <body>
+
+  <div class="page-header">
+   <div class="header-button-wrapper">
+    <button onclick="location.href='{{ url_for('search') }}'">ホームに戻る</button>
+      <button onclick="location.href='{{ url_for('login') }}'">ログアウト</button>
+      <button onclick="location.href='{{ url_for('inbox') }}'">メッセージ</button>
+      <button onclick="location.href='{{ url_for('register') }}'">新規登録</button>
+   </div>
+ </div>
   <div class="container">
     <h1>レポート作成</h1>
     <div class="button-list">

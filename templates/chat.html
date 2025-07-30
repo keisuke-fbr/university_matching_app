@@ -18,7 +18,17 @@
         <div class="finish">
             <button id="finishButton">完了</button>
         </div>
+
+      <div class="back">
+            <button onclick="history.back()" id="backButton">戻る</button>
+        </div>
+
+        <div class="messageBox">
+            <button onclick="location.href='{{ url_for('inbox') }}'"id="backButton"><i class="fa fa-envelope"></i> 受信箱</button>
+        </div>
       </div>
+
+      
 
       <!-- メッセージ表示エリア -->
       <div class="chat-messages">

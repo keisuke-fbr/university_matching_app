@@ -67,6 +67,34 @@ body {
   background-color: #e0e0e0;
 }
 
+.back {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+
+#backButton {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #4a6fa5;
+  transition: background-color 0.3s;
+}
+
+#backButton:hover {
+  background-color: #e0e0e0;
+}
+
+.messageBox{
+  position: absolute;
+  top: 15px;
+  left: 100px;
+}
+
 /* メッセージのやりとりの設定 */
 .chat-messages {
   flex: 1;
