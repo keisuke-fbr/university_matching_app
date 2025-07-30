@@ -12,16 +12,13 @@
       <label>名前<br>
         <input type="text" name="name" required>
       </label>
-      <label>メールアドレス<br>
-        <input type="email" name="email" required>
-      </label>
       <label>パスワード<br>
         <input type="password" name="password" required>
       </label>
       <button type="submit" class="login-btn">登録する</button>
     </form>
     {% if success %}
-      <div class="success-message">認証メールを送信しました！メールをご確認ください。</div>
+      <div class="success-message">会員登録が完了しました！</div>
     {% elif error %}
       <div class="error-message">{{ error }}</div>
     {% endif %}
